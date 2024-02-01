@@ -12477,15 +12477,21 @@
                     if (!this.isActive()) return void yi(Vu, "disabled - not activated");
                     const e = ji.get("post_id") || ji.get("artid"),
                         t = ji.get("s1");
-                    Gt.on(Bt.AD_ENGINE_UAP_LOAD_STATUS, (i) => {
-                        if (i.isLoaded) return void yi(Vu, "disabled - UAP is loaded");
-                        const n = `wk_${t}_${e}`;
-                        if ((this.placementsHandler.build(n), this.placementsHandler.isDone())) {
-                            const e = window.location.origin + window.location.pathname,
-                                t = ji.get("wpage") || "";
-                            this.loadScript(this.config.spotId, n, e, t);
-                        } else yi(Vu, "disabled - builder failed");
-                    });
+                    // Gt.on(Bt.AD_ENGINE_UAP_LOAD_STATUS, (i) => {
+                    //     if (i.isLoaded) return void yi(Vu, "disabled - UAP is loaded");
+                    //     const n = `wk_${t}_${e}`;
+                    //     if ((this.placementsHandler.build(n), this.placementsHandler.isDone())) {
+                    //         const e = window.location.origin + window.location.pathname,
+                    //             t = ji.get("wpage") || "";
+                    //         this.loadScript(this.config.spotId, n, e, t);
+                    //     } else yi(Vu, "disabled - builder failed");
+                    // });
+                    const n = `wk_${t}_${e}`;
+                    if ((this.placementsHandler.build(n), this.placementsHandler.isDone())) {
+                        const e = window.location.origin + window.location.pathname,
+                            t = ji.get("wpage") || "";
+                        this.loadScript(this.config.spotId, n, e, t);
+                    } else yi(Vu, "disabled - builder failed");
                 }
                 isActive() {
                     var e;
